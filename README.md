@@ -22,6 +22,7 @@ Raspberry Pi Zero W (can be any other) plus:
 - ADS1015 AD converter for analog sensors
 
 ## Installation
+Install Raspbian with other bits of software (instruction below), repositorium files should go to your user folder under .node-red/projects They can be git cloned in terminal or via node-red project interface.
 
 ### System
 Install minimal Raspbian from [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/)
