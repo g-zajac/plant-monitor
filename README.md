@@ -1,10 +1,113 @@
 Plant monitor
 =============
 
-Plant monitoring stand-alone system based on raspberry pi with node-red, influxdb and grafana.
+Stand-alone Plant monitoring system based on raspberry pi, camera and some sensors.
 
-### About
+## About
 
-This project is about looging some enviroment data and monitoring a plant.
-Sensors are hooked up to raspberry pi, node-red process thereading and store to influxdb.
+This project is about loging some enviroment data from sensors and monitoring a plant growth.
+Sensors and camera are hooked up to raspberry pi, node-red process the reading and store them to influxdb.
 For data visualisation Grafana is used.
+
+---
+
+## Hardware
+
+Raspberry Pi Zero W (can be any other) plus:
+- camera with wide lens
+- TSL2561 digital luminosity light sesor
+- BMP280 Pressure/temperature Sensors
+- HC-SR04 ultrasonic distance sensor for water level
+- Capacitive Soli Moisture Sensor
+- ADS1015 AD converter for analog sensors
+
+## Installation
+
+### System
+Install minimal Raspbian from [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/)
+
+*create an empty ssh file on card in /boot folder for ssh access*
+
+connect via SSH:
+```bash
+sudo apt-get update && sudo apt-get upgrade
+```
+
+```bash
+sudo raspi-config
+```
+enable interfaces I2C, camera etc and
+change hostname for easy ssh access
+
+
+### Applications
+1. Node-Red
+Install node-red with script from:
+```bash
+bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
+```
+
+2. Install PM2
+```bash
+npm install pm2 -g
+```
+```bash
+pm2 start node-red
+```
+for autostart
+```bash
+pm2 save
+pm2 startup
+```
+
+3. Git
+```bash
+sudo apt-get install git
+git config --global user.name 'your user name here'
+git config --global user.email 'your email here'
+```
+enable node-red project git integration:
+[https://nodered.org/docs/user-guide/projects/](https://nodered.org/docs/user-guide/projects/)
+
+4. Influx database
+```bash
+sudo apt-get install influxdb
+```
+(add command line interface)
+```bash
+apt-get install influxdb-client
+sudo service influxdb start
+```
+run influx
+```bash
+influx
+```
+```sql
+CREATE DATABASE plantdb
+```
+
+5. Grafana
+```bash
+sudo apt-get install grafana
+sudo systemctl start grafana-server
+sudo systemctl status grafana-server
+```
+autostart
+```bash
+sudo systemctl enable grafana-server.service
+```
+Open grafana web interface   yourhostname.localhost:3000
+
+6. Other bits
+* Python adds for TSL2561 script
+```bash
+sudo apt-get install python-pip
+sudo apt install python-smbus
+```
+
+## License
+This project is licensed under [MIT license](http://opensource.org/licenses/mit-license.php)
+
+## Project status
+- prototype built, under testing
+- node-red flow under development
