@@ -25,14 +25,10 @@ Raspberry Pi Zero W (can be any other) plus:
 Install Raspbian with other bits of software (instruction below), repositorium files should go to your user folder under .node-red/projects They can be git cloned in terminal or via node-red project interface.
 
 ### System
-Install minimal Raspbian from [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/)
-
+Install minimal Raspbian from [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/)   
 *(create an empty ssh file on card in /boot folder for ssh access)*
 
 All installation and configuration below is done in terminal over SSH.
-
-Update packages
-connect via SSH:
 ```bash
 sudo apt-get update && sudo apt-get upgrade
 ```
@@ -50,6 +46,14 @@ Install node-red with script from: [https://nodered.org/docs/getting-started/ras
 ```bash
 bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
 ```
+#### Install node-red nodes:
+  * [node-red-contrib-bme280](https://flows.nodered.org/node/node-red-contrib-bme280)
+  * [node-red-contrib-camerapi](https://flows.nodered.org/node/node-red-contrib-camerapi) (*enable in rapi-conf and check for installed picamera module!*)
+  * [node-red-contrib-influxdb](https://flows.nodered.org/node/node-red-contrib-influxdb)
+  * [node-red-contrib-os](https://flows.nodered.org/node/node-red-contrib-os)
+  * [node-red-contrib-pcf8574-lcd](https://flows.nodered.org/node/node-red-contrib-pcf8574-lcd)
+  * [node-red-contrib-pythonshell](https://flows.nodered.org/node/node-red-contrib-pythonshell)
+
 
 2. Install PM2
 ```bash
