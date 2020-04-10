@@ -37,4 +37,4 @@ ch1 = data1[1] * 256 + data1[0]
 #print "Full Spectrum(IR + Visible) :%d lux" %ch0
 #print "Infrared Value :%d lux" %ch1
 #print "Visible Value :%d lux" %(ch0 - ch1)
-print { "IR": ch0, "Vis": ch1}
+print { "Full": ch0, "IR": ch1}
