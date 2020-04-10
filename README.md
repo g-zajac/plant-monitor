@@ -1,12 +1,12 @@
 Plant monitor
 =============
 
-Stand-alone Plant monitoring system based on raspberry pi, camera and some sensors.
+Stand-alone plant monitoring system built with raspberry pi, camera and some sensors.
 
 ## About
 
 This project is about loging some enviroment data from sensors and monitoring a plant growth.
-Sensors and camera are hooked up to raspberry pi, node-red process the reading and store them to influxdb.
+Sensors and camera are hooked up to raspberry pi. Node-red process the sensors readings and store them to influxdb.
 For data visualisation Grafana is used.
 
 ---
@@ -26,8 +26,11 @@ Raspberry Pi Zero W (can be any other) plus:
 ### System
 Install minimal Raspbian from [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/)
 
-*create an empty ssh file on card in /boot folder for ssh access*
+*(create an empty ssh file on card in /boot folder for ssh access)*
 
+All installation and configuration below is done in terminal over SSH.
+
+Update packages
 connect via SSH:
 ```bash
 sudo apt-get update && sudo apt-get upgrade
@@ -42,7 +45,7 @@ change hostname for easy ssh access
 
 ### Applications
 1. Node-Red
-Install node-red with script from:
+Install node-red with script from: [https://nodered.org/docs/getting-started/raspberrypi](https://nodered.org/docs/getting-started/raspberrypi)
 ```bash
 bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
 ```
@@ -99,7 +102,7 @@ sudo systemctl enable grafana-server.service
 Open grafana web interface   yourhostname.localhost:3000
 
 6. Other bits
-* Python adds for TSL2561 script
+* Python package for TSL2561 script
 ```bash
 sudo apt-get install python-pip
 sudo apt install python-smbus
