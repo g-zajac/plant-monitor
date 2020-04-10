@@ -28,7 +28,7 @@ Install Raspbian with other bits of software (instruction below), repositorium f
 Install minimal Raspbian from [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/)   
 *(create an empty ssh file on card in /boot folder for ssh access)*
 
-All installation and configuration below is done in terminal over SSH.
+All installation and configuration below is done in terminal remotly over SSH.
 ```bash
 sudo apt-get update && sudo apt-get upgrade
 ```
@@ -46,9 +46,9 @@ Install node-red with script from: [https://nodered.org/docs/getting-started/ras
 ```bash
 bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
 ```
-#### Install node-red nodes:
+  Install node-red nodes:
   * [node-red-contrib-bme280](https://flows.nodered.org/node/node-red-contrib-bme280)
-  * [node-red-contrib-camerapi](https://flows.nodered.org/node/node-red-contrib-camerapi) (*enable in rapi-conf and check for installed picamera module!*)
+  * [node-red-contrib-camerapi](https://flows.nodered.org/node/node-red-contrib-camerapi) (*enable in raspi-conf and check for installed picamera module!*)
   * [node-red-contrib-influxdb](https://flows.nodered.org/node/node-red-contrib-influxdb)
   * [node-red-contrib-os](https://flows.nodered.org/node/node-red-contrib-os)
   * [node-red-contrib-pcf8574-lcd](https://flows.nodered.org/node/node-red-contrib-pcf8574-lcd)
