@@ -2,7 +2,15 @@
     "name": "plant-monitor",
     "description": "Plant monitoring system",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-contrib-bme280": "1.0.0",
+        "node-red-contrib-camerapi": "0.0.38",
+        "node-red-contrib-os": "0.1.7",
+        "node-red-contrib-pythonshell": "1.5.4",
+        "node-red-node-pi-gpio": "1.0.9",
+        "node-red-node-pisrf": "0.1.4",
+        "node-red-contrib-s3": "0.1.2"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flow.json",
