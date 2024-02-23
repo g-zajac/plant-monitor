@@ -36,64 +36,9 @@
         "freq": "",
         "out": "out",
         "bcm": true,
-        "x": 330,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "376b13e23f25b218",
-        "type": "inject",
-        "z": "3e9bdef31c52f222",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "v": "true",
-                "vt": "bool"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 150,
-        "y": 100,
-        "wires": [
-            [
-                "428111ca400b4b80"
-            ]
-        ]
-    },
-    {
-        "id": "a1eb1a77c0deaaee",
-        "type": "inject",
-        "z": "3e9bdef31c52f222",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "false",
-        "payloadType": "bool",
-        "x": 150,
+        "x": 470,
         "y": 140,
-        "wires": [
-            [
-                "428111ca400b4b80"
-            ]
-        ]
+        "wires": []
     },
     {
         "id": "0fc0499d2e887950",
@@ -482,5 +427,93 @@
         "x": 110,
         "y": 380,
         "wires": []
+    },
+    {
+        "id": "740a99d2.b07d1",
+        "type": "function",
+        "z": "3e9bdef31c52f222",
+        "name": "startBlink",
+        "func": "var BLINKDELAY = 1000;\n\nvar light = true;\n\n\nvar blinker = setInterval(blink, BLINKDELAY);\n\nglobal.set(\"blinker\", blinker);\n\nfunction blink () {\n    \n    if (light) {\n        msg.payload = 1;\n        light = false;\n    }\n    \n    else {\n        msg.payload = 0;\n        light = true;\n    }\n    \n    node.send(msg);\n}\n\n\nreturn;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "428111ca400b4b80"
+            ]
+        ]
+    },
+    {
+        "id": "73f5f278.0231bc",
+        "type": "inject",
+        "z": "3e9bdef31c52f222",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "740a99d2.b07d1"
+            ]
+        ]
+    },
+    {
+        "id": "cc1b11b1.bebb28",
+        "type": "function",
+        "z": "3e9bdef31c52f222",
+        "name": "stopBlink",
+        "func": "clearInterval(global.get(\"blinker\"));\n\nmsg.payload = 0;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 180,
+        "wires": [
+            [
+                "428111ca400b4b80"
+            ]
+        ]
+    },
+    {
+        "id": "5db82a6c.1b547c",
+        "type": "inject",
+        "z": "3e9bdef31c52f222",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "cc1b11b1.bebb28"
+            ]
+        ]
     }
 ]
