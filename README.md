@@ -38,7 +38,7 @@ change ssh server to openssh
 install: avahi for mDNS broadcasting
 change hostname for easy ssh access to plant.local
 - [ ] install ssh keys for quick and easy access
-
+enable I2C in settings for sensors and OLED
 
 ### Applications
 1. Node-Red
@@ -49,12 +49,20 @@ dietpi-software
 
 2. Install node-red nodes:
   * [node-red-node-pi-gpio](https://flows.nodered.org/node/node-red-node-pi-gpio) this is not installed by default
+  * [node-red-contrib-oled-i2c](https://flows.nodered.org/node/node-red-contrib-oled-i2c) required apt-get install build-essential before
+  * [node-red-contrib-easybotics-ina219-sensor](https://flows.nodered.org/node/node-red-contrib-easybotics-ina219-sensor)
+  * [node-red-node-smooth](https://flows.nodered.org/node/node-red-node-smooth) averaging I,U readings from INA219 sensor
 
 3. Git
 ```bash
 dietpi-software
 git config --global user.name 'your user name here'
 git config --global user.email 'your email here'
+```
+
+storing pernametly credentials
+```bash
+git config --global credential.helper store
 ```
 
 enable node-red project git integration:
