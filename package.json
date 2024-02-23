@@ -1,1 +1,7 @@
-
+{
+    "dependencies": {
+      "node-red": "^3.1.5",
+      "node-red-node-pi-gpio": "~2.0.6"
+    }
+  }
+  
