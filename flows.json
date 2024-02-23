@@ -8,6 +8,24 @@
         "env": []
     },
     {
+        "id": "323c43b58efdcc16",
+        "type": "oled-config",
+        "name": "OLED",
+        "width": "128",
+        "height": "64",
+        "address": "60",
+        "driver": "SSD1306",
+        "i2cBus": "1"
+    },
+    {
+        "id": "cd987ba24a20ad3f",
+        "type": "ina-sensor-manager",
+        "address": "0x40",
+        "delay": "3000",
+        "ohms": "0.01",
+        "customResistor": false
+    },
+    {
         "id": "428111ca400b4b80",
         "type": "rpi-gpio out",
         "z": "3e9bdef31c52f222",
@@ -76,5 +94,393 @@
                 "428111ca400b4b80"
             ]
         ]
+    },
+    {
+        "id": "0fc0499d2e887950",
+        "type": "String",
+        "z": "3e9bdef31c52f222",
+        "name": "OLED",
+        "display": "323c43b58efdcc16",
+        "x": 1030,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "e95d8ea415a9acb8",
+        "type": "inject",
+        "z": "3e9bdef31c52f222",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.text",
+                "v": "test",
+                "vt": "msg"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 770,
+        "y": 160,
+        "wires": [
+            [
+                "0fc0499d2e887950"
+            ]
+        ]
+    },
+    {
+        "id": "1138385a204dbeea",
+        "type": "FillRectangle",
+        "z": "3e9bdef31c52f222",
+        "name": "test",
+        "display": "323c43b58efdcc16",
+        "x": 1030,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "19e41095bd6b6408",
+        "type": "inject",
+        "z": "3e9bdef31c52f222",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": " {\"x\":1,\"y\":1,\"w\":10,\"h\":20,\"color\":1}",
+        "payloadType": "str",
+        "x": 770,
+        "y": 200,
+        "wires": [
+            [
+                "1138385a204dbeea"
+            ]
+        ]
+    },
+    {
+        "id": "1aaad4e952c9613a",
+        "type": "Turn-on",
+        "z": "3e9bdef31c52f222",
+        "name": "on",
+        "display": "323c43b58efdcc16",
+        "x": 1030,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "efc5f55de5bb5c61",
+        "type": "inject",
+        "z": "3e9bdef31c52f222",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 770,
+        "y": 240,
+        "wires": [
+            [
+                "1aaad4e952c9613a"
+            ]
+        ]
+    },
+    {
+        "id": "7c8814f06afdfb83",
+        "type": "Battery",
+        "z": "3e9bdef31c52f222",
+        "name": "batt",
+        "display": "323c43b58efdcc16",
+        "x": 1030,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "a766de9af7ec2ae0",
+        "type": "inject",
+        "z": "3e9bdef31c52f222",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": " {\"x\":1,\"y\":1,\"p\":25}",
+        "payloadType": "str",
+        "x": 810,
+        "y": 280,
+        "wires": [
+            [
+                "7c8814f06afdfb83",
+                "202f3989770c4d4d"
+            ]
+        ]
+    },
+    {
+        "id": "202f3989770c4d4d",
+        "type": "debug",
+        "z": "3e9bdef31c52f222",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "11c779525bc67625",
+        "type": "comment",
+        "z": "3e9bdef31c52f222",
+        "name": "OLED not working on 3V3",
+        "info": "",
+        "x": 810,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c1779d66ce1b6f22",
+        "type": "ina-sensor",
+        "z": "3e9bdef31c52f222",
+        "name": "",
+        "handle": "cd987ba24a20ad3f",
+        "x": 130,
+        "y": 640,
+        "wires": [
+            [
+                "4a5b675bfdfb3890"
+            ],
+            [
+                "86ed563c8657fc2f",
+                "a1ad275c7516acfc"
+            ]
+        ]
+    },
+    {
+        "id": "dca2e7f959751f2f",
+        "type": "change",
+        "z": "3e9bdef31c52f222",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "voltage",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fca76af47d2bce5c",
+        "type": "change",
+        "z": "3e9bdef31c52f222",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "current",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6e5416ab71a63190",
+        "type": "function",
+        "z": "3e9bdef31c52f222",
+        "name": ".00 V",
+        "func": "// @ts-ignore\nnewMsg = {};\nnewMsg.payload = JSON.parse(Number(msg.payload).toFixed(2));\nnode.status({text: newMsg.payload});\nreturn newMsg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 580,
+        "wires": [
+            [
+                "dca2e7f959751f2f"
+            ]
+        ]
+    },
+    {
+        "id": "5304afdd3cac5825",
+        "type": "function",
+        "z": "3e9bdef31c52f222",
+        "name": ".00 mA",
+        "func": "newMsg = {};\nnewMsg.payload = JSON.parse(Number(msg.payload).toFixed(2));\nnode.status({text: newMsg.payload});\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 660,
+        "wires": [
+            [
+                "fca76af47d2bce5c"
+            ]
+        ]
+    },
+    {
+        "id": "f903fd8531793da2",
+        "type": "function",
+        "z": "3e9bdef31c52f222",
+        "name": "power W",
+        "func": "var volt = global.get(\"voltage\");\nvar current = global.get(\"current\");\nvar power = volt * (current / 1000);\nmsg.payload = JSON.parse(Number(power).toFixed(2));\nnode.status({text: msg.payload});\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 720,
+        "wires": [
+            [
+                "811c44a56c24d023"
+            ]
+        ]
+    },
+    {
+        "id": "a1ad275c7516acfc",
+        "type": "delay",
+        "z": "3e9bdef31c52f222",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "outputs": 1,
+        "x": 380,
+        "y": 720,
+        "wires": [
+            [
+                "f903fd8531793da2"
+            ]
+        ]
+    },
+    {
+        "id": "811c44a56c24d023",
+        "type": "change",
+        "z": "3e9bdef31c52f222",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "power",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "86ed563c8657fc2f",
+        "type": "smooth",
+        "z": "3e9bdef31c52f222",
+        "name": "mean",
+        "property": "payload",
+        "action": "mean",
+        "count": "10",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 370,
+        "y": 660,
+        "wires": [
+            [
+                "5304afdd3cac5825"
+            ]
+        ]
+    },
+    {
+        "id": "4a5b675bfdfb3890",
+        "type": "smooth",
+        "z": "3e9bdef31c52f222",
+        "name": "mean",
+        "property": "payload",
+        "action": "mean",
+        "count": "10",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 370,
+        "y": 580,
+        "wires": [
+            [
+                "6e5416ab71a63190"
+            ]
+        ]
+    },
+    {
+        "id": "fadd76476a56c645",
+        "type": "comment",
+        "z": "3e9bdef31c52f222",
+        "name": "INA219",
+        "info": "on default address 40\n",
+        "x": 110,
+        "y": 500,
+        "wires": []
     }
 ]
