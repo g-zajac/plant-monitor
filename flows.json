@@ -273,7 +273,7 @@
         "name": "",
         "handle": "cd987ba24a20ad3f",
         "x": 130,
-        "y": 640,
+        "y": 500,
         "wires": [
             [
                 "4a5b675bfdfb3890"
@@ -304,7 +304,7 @@
         "to": "",
         "reg": false,
         "x": 750,
-        "y": 580,
+        "y": 440,
         "wires": [
             []
         ]
@@ -329,7 +329,7 @@
         "to": "",
         "reg": false,
         "x": 750,
-        "y": 660,
+        "y": 520,
         "wires": [
             []
         ]
@@ -347,7 +347,7 @@
         "finalize": "",
         "libs": [],
         "x": 550,
-        "y": 580,
+        "y": 440,
         "wires": [
             [
                 "dca2e7f959751f2f"
@@ -363,7 +363,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 560,
-        "y": 660,
+        "y": 520,
         "wires": [
             [
                 "fca76af47d2bce5c"
@@ -379,7 +379,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 560,
-        "y": 720,
+        "y": 580,
         "wires": [
             [
                 "811c44a56c24d023"
@@ -403,7 +403,7 @@
         "drop": false,
         "outputs": 1,
         "x": 380,
-        "y": 720,
+        "y": 580,
         "wires": [
             [
                 "f903fd8531793da2"
@@ -430,7 +430,7 @@
         "to": "",
         "reg": false,
         "x": 750,
-        "y": 720,
+        "y": 580,
         "wires": [
             []
         ]
@@ -447,7 +447,7 @@
         "mult": "single",
         "reduce": false,
         "x": 370,
-        "y": 660,
+        "y": 520,
         "wires": [
             [
                 "5304afdd3cac5825"
@@ -466,7 +466,7 @@
         "mult": "single",
         "reduce": false,
         "x": 370,
-        "y": 580,
+        "y": 440,
         "wires": [
             [
                 "6e5416ab71a63190"
@@ -480,7 +480,7 @@
         "name": "INA219",
         "info": "on default address 40\n",
         "x": 110,
-        "y": 500,
+        "y": 380,
         "wires": []
     }
 ]
