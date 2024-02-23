@@ -1,6 +1,6 @@
 [
     {
-        "id": "b4aa4db88cea5e21",
+        "id": "3e9bdef31c52f222",
         "type": "tab",
         "label": "Playground",
         "disabled": false,
@@ -8,13 +8,33 @@
         "env": []
     },
     {
-        "id": "c3b785f33fc6d91e",
+        "id": "428111ca400b4b80",
+        "type": "rpi-gpio out",
+        "z": "3e9bdef31c52f222",
+        "name": "LED",
+        "pin": "4",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 330,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "376b13e23f25b218",
         "type": "inject",
-        "z": "b4aa4db88cea5e21",
+        "z": "3e9bdef31c52f222",
         "name": "",
         "props": [
             {
                 "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "true",
+                "vt": "bool"
             }
         ],
         "repeat": "",
@@ -24,18 +44,18 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 110,
-        "y": 80,
+        "x": 150,
+        "y": 100,
         "wires": [
             [
-                "1e85798dc4d1f923"
+                "428111ca400b4b80"
             ]
         ]
     },
     {
-        "id": "7b8a580b3d398934",
+        "id": "a1eb1a77c0deaaee",
         "type": "inject",
-        "z": "b4aa4db88cea5e21",
+        "z": "3e9bdef31c52f222",
         "name": "",
         "props": [
             {
@@ -49,27 +69,12 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 110,
-        "y": 120,
+        "x": 150,
+        "y": 140,
         "wires": [
             [
-                "1e85798dc4d1f923"
+                "428111ca400b4b80"
             ]
         ]
-    },
-    {
-        "id": "1e85798dc4d1f923",
-        "type": "rpi-gpio out",
-        "z": "b4aa4db88cea5e21",
-        "name": "LED test",
-        "pin": "4",
-        "set": true,
-        "level": "0",
-        "freq": "",
-        "out": "out",
-        "bcm": true,
-        "x": 320,
-        "y": 100,
-        "wires": []
     }
 ]
