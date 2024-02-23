@@ -1,0 +1,75 @@
+[
+    {
+        "id": "b4aa4db88cea5e21",
+        "type": "tab",
+        "label": "Playground",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c3b785f33fc6d91e",
+        "type": "inject",
+        "z": "b4aa4db88cea5e21",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "1e85798dc4d1f923"
+            ]
+        ]
+    },
+    {
+        "id": "7b8a580b3d398934",
+        "type": "inject",
+        "z": "b4aa4db88cea5e21",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "1e85798dc4d1f923"
+            ]
+        ]
+    },
+    {
+        "id": "1e85798dc4d1f923",
+        "type": "rpi-gpio out",
+        "z": "b4aa4db88cea5e21",
+        "name": "LED test",
+        "pin": "4",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 320,
+        "y": 100,
+        "wires": []
+    }
+]
