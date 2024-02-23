@@ -54,13 +54,15 @@ dietpi-software
   * [node-red-node-smooth](https://flows.nodered.org/node/node-red-node-smooth) averaging I,U readings from INA219 sensor
 
 3. Git
+
 ```bash
 dietpi-software
 git config --global user.name 'your user name here'
 git config --global user.email 'your email here'
 ```
 
-storing pernametly credentials
+to sore pernametly credentials, run this command before git push on node-red:
+
 ```bash
 git config --global credential.helper store
 ```
