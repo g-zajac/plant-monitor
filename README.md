@@ -60,6 +60,10 @@ git config --global user.email 'your email here'
 enable node-red project git integration:
 [https://nodered.org/docs/user-guide/projects/](https://nodered.org/docs/user-guide/projects/)
 
+[DietPi Node-RED](https://dietpi.com/docs/software/hardware_projects/#__tabbed_6_3), all configs and data is stored in the following location:
+/mnt/dietpi_userdata/node-red
+
+
 ## License
 This project is licensed under [MIT license](http://opensource.org/licenses/mit-license.php)
 
